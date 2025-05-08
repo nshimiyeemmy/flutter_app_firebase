@@ -35,7 +35,10 @@ class _EditNoteDialogState extends State<EditNoteDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('Edit Note'),
+      title: const Text('Edit Note',
+        style: const TextStyle(
+        color: Colors.lightBlueAccent,)
+      ),
       content: Form(
         key: _formKey,
         child: TextFormField(
@@ -45,16 +48,22 @@ class _EditNoteDialogState extends State<EditNoteDialog> {
           validator: Validators.validateNoteText,
           decoration: const InputDecoration(
             hintText: 'Enter your note here...',
-            border: OutlineInputBorder(),
+            //border: OutlineInputBorder(),
           ),
         ),
       ),
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
+          style: TextButton.styleFrom(
+            foregroundColor: Colors.lightBlueAccent,
+          ),
           child: const Text('Cancel'),
         ),
-        ElevatedButton(onPressed: _submit, child: const Text('Update')),
+        ElevatedButton(onPressed: _submit,
+        style: ElevatedButton.styleFrom(
+        foregroundColor: Colors.lightBlueAccent,),
+            child: const Text('Update')),
       ],
     );
   }

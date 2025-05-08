@@ -45,7 +45,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
     if (mounted) {
       if (success) {
-        _showSnackBar('Signed in successfully!');
+        _showSnackBar('logged in successfully!');
       } else if (authProvider.errorMessage.isNotEmpty) {
         _showSnackBar(authProvider.errorMessage, isError: true);
       }
@@ -61,6 +61,7 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.lightBlueAccent,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(24.0),
@@ -72,18 +73,6 @@ class _SignInScreenState extends State<SignInScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    // App Title
-                    Text(
-                      'Notes App',
-                      style: Theme.of(context).textTheme.headlineLarge
-                          ?.copyWith(
-                            fontWeight: FontWeight.bold,
-                            color: Theme.of(context).primaryColor,
-                          ),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 48),
-
                     // Welcome Back
                     Text(
                       'Welcome Back',
@@ -92,10 +81,10 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      'Sign in to your account',
+                      'Please login to your account....',
                       style: Theme.of(
                         context,
-                      ).textTheme.bodyLarge?.copyWith(color: Colors.grey[600]),
+                      ).textTheme.bodyLarge?.copyWith(color: Colors.white),
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 32),
@@ -106,10 +95,10 @@ class _SignInScreenState extends State<SignInScreen> {
                       keyboardType: TextInputType.emailAddress,
                       validator: Validators.validateEmail,
                       decoration: InputDecoration(
-                        labelText: 'Email',
-                        prefixIcon: const Icon(Icons.email),
+                        labelText: 'Input Email',
+                        //prefixIcon: const Icon(Icons.email),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(0),
                         ),
                       ),
                     ),
@@ -121,8 +110,8 @@ class _SignInScreenState extends State<SignInScreen> {
                       obscureText: _obscurePassword,
                       validator: Validators.validatePassword,
                       decoration: InputDecoration(
-                        labelText: 'Password',
-                        prefixIcon: const Icon(Icons.lock),
+                        labelText: 'Input Password',
+                        //prefixIcon: const Icon(Icons.lock),
                         suffixIcon: IconButton(
                           icon: Icon(
                             _obscurePassword
@@ -136,7 +125,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           },
                         ),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(0),
                         ),
                       ),
                     ),
@@ -149,7 +138,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         onPressed: authProvider.isLoading ? null : _signIn,
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius: BorderRadius.circular(0),
                           ),
                         ),
                         child: authProvider.isLoading
@@ -157,7 +146,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                 color: Colors.white,
                               )
                             : const Text(
-                                'Sign In',
+                                'LOGIN HERE',
                                 style: TextStyle(fontSize: 16),
                               ),
                       ),
@@ -169,7 +158,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       onPressed: authProvider.isLoading
                           ? null
                           : _navigateToSignUp,
-                      child: const Text('Don\'t have an account? Sign Up'),
+                      child: const Text('New Here? Registration'),
                     ),
                   ],
                 ),

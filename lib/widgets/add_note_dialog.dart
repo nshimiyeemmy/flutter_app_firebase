@@ -27,7 +27,10 @@ class _AddNoteDialogState extends State<AddNoteDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('Add New Note'),
+      title: const Text('Adding New Note',
+          style: const TextStyle(
+            color: Colors.lightBlueAccent,)
+      ),
       content: Form(
         key: _formKey,
         child: TextFormField(
@@ -37,16 +40,22 @@ class _AddNoteDialogState extends State<AddNoteDialog> {
           validator: Validators.validateNoteText,
           decoration: const InputDecoration(
             hintText: 'Enter your note here...',
-            border: OutlineInputBorder(),
+            //border: OutlineInputBorder(),
           ),
         ),
       ),
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
+          style: TextButton.styleFrom(
+            foregroundColor: Colors.lightBlueAccent,
+          ),
           child: const Text('Cancel'),
         ),
-        ElevatedButton(onPressed: _submit, child: const Text('Add')),
+        ElevatedButton(onPressed: _submit,
+    style: ElevatedButton.styleFrom(
+      foregroundColor: Colors.lightBlueAccent,),
+            child: const Text('Add')),
       ],
     );
   }

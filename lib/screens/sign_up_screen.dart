@@ -73,6 +73,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.lightBlueAccent,
       appBar: AppBar(
         title: const Text('Sign Up'),
         backgroundColor: Colors.transparent,
@@ -93,6 +94,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
+
                     // Create Account
                     Text(
                       'Create Account',
@@ -101,10 +103,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      'Join us to start taking notes',
+                      'Please register to start taking notes...',
                       style: Theme.of(
                         context,
-                      ).textTheme.bodyLarge?.copyWith(color: Colors.grey[600]),
+                      ).textTheme.bodyLarge?.copyWith(color: Colors.white),
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 32),
@@ -116,9 +118,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       validator: Validators.validateEmail,
                       decoration: InputDecoration(
                         labelText: 'Email',
-                        prefixIcon: const Icon(Icons.email),
+                        //prefixIcon: const Icon(Icons.email),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(0),
                         ),
                       ),
                     ),
@@ -131,7 +133,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       validator: Validators.validatePassword,
                       decoration: InputDecoration(
                         labelText: 'Password',
-                        prefixIcon: const Icon(Icons.lock),
+                        //prefixIcon: const Icon(Icons.lock),
                         suffixIcon: IconButton(
                           icon: Icon(
                             _obscurePassword
@@ -145,7 +147,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           },
                         ),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(0),
                         ),
                       ),
                     ),
@@ -158,7 +160,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       validator: _validateConfirmPassword,
                       decoration: InputDecoration(
                         labelText: 'Confirm Password',
-                        prefixIcon: const Icon(Icons.lock_outline),
+                        //prefixIcon: const Icon(Icons.lock_outline),
                         suffixIcon: IconButton(
                           icon: Icon(
                             _obscureConfirmPassword
@@ -173,7 +175,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           },
                         ),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(0),
                         ),
                       ),
                     ),
@@ -186,7 +188,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         onPressed: authProvider.isLoading ? null : _signUp,
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius: BorderRadius.circular(0),
                           ),
                         ),
                         child: authProvider.isLoading
@@ -194,7 +196,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 color: Colors.white,
                               )
                             : const Text(
-                                'Sign Up',
+                                'REGISTER HERE',
                                 style: TextStyle(fontSize: 16),
                               ),
                       ),
@@ -204,7 +206,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     // Navigate to Sign In
                     TextButton(
                       onPressed: authProvider.isLoading ? null : _navigateBack,
-                      child: const Text('Already have an account? Sign In'),
+                      child: const Text('Already have an account? Login'),
                     ),
                   ],
                 ),

@@ -193,8 +193,8 @@ class _NotesScreenState extends State<NotesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Your Notes'),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: const Text('Add your notes here...'),
+        backgroundColor: Colors.lightBlueAccent,
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),
